@@ -1,5 +1,3 @@
-__author__ = 'yuwenhao'
-
 import gym
 import gym_dart
 import numpy as np
@@ -9,15 +7,15 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         env = gym.make(sys.argv[1])
     else:
-        env = gym.make('DartWalker3dSPD-v1')
+        #env = gym.make('DartEmpty-v0')
+        env = gym.make('DartCartPole-v0')
 
-    env.env.disableViewer = False
+    # env.env.disableViewer = False
 
     env.reset()
 
-
     for i in range(1000):
-        env.step(env.action_space.sample())
-        env.render()
+        print('i:', i, ', ', env.step([0, 0]))
+        # env.render()
 
-    env.render(close=True)
+    # env.render(close=True)
